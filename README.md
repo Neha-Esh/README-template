@@ -1,27 +1,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/catiaspsilva/README-template">
-    <img src="images/gators.jpg" alt="Logo" width="150" height="150">
-  </a>
-
-  <h3 align="center">README Template</h3>
+  <h3 align="center">Satellite Ship Detection using Manifold Learning</h3>
 
   <p align="center">
-    A README template to jumpstart your projects!
+    A machine learning pipeline for detecting ships in satellite imagery using manifold learning and ensemble methods
     <br />
-    <a href="https://github.com/catiaspsilva/README-template/blob/main/images/docs.txt"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="#usage">View Demo</a>
-    ·
-    <a href="https://github.com/catiaspsilva/README-template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/catiaspsilva/README-template/issues">Request Feature</a>
   </p>
 </p>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -41,121 +27,126 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#authors">Authors</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#results">Results</a></li>
   </ol>
 </details>
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-In this section you should describe your project, including any datasets you used and appropriate citations. You may refer to your project report or cite your paper for more detailed information.
+This project implements a machine learning pipeline for detecting ships in satellite imagery. The system uses manifold learning techniques (t-SNE, Isomap, LLE) combined with various classifiers to create an effective ship detection model. The pipeline includes data preprocessing, dimensionality reduction, model training, and evaluation components.
 
-[Here goes the title with hyperlink](https://github.com/catiaspsilva/README-template)
+### Built With
 
-You can include tables or images to summarize your results when and if appropriate.
+* Python 3.x
+* scikit-learn
+* NumPy
+* Pandas
+* Matplotlib
+* PIL (Python Imaging Library)
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-In this section you should provide instructions on how to use this repository to recreate your project locally.
+To get a local copy up and running, follow these steps.
 
 ### Dependencies
 
-Here, list all libraries, packages and other dependencies that need to be installed to run your project. Include library versions and how they should be installed if a special requirement is needed.
-
-For example, this is how you would list them:
-* Transformers 4.8.0
-  ```sh
-  conda install -c conda-forge transformers
-  ```
-* OpenCV 4.5.2
-  ```sh
-  conda install -c conda-forge opencv
-  ```
-### Alternative: Export your Environment
-
-Alternatively, you can export your Python working environment, push it to your project's repository and allow users to clone it locally. This way, anyone can install it and they will have all dependencies needed. Here is how you export a copy of your Python environment:
-
-  ```sh
-  conda env export > requirements.yml
-  ```
-
-The user will be able to recreate it using:
-
-  ```sh
-  conda env create -f requirements.yml
-  ```
+The project requires the following main packages:
+* scikit-learn
+  sh
+  pip install scikit-learn
+  
+* NumPy
+  sh
+  pip install numpy
+  
+* Pandas
+  sh
+  pip install pandas
+  
+* Matplotlib
+  sh
+  pip install matplotlib
+  
+* PIL
+  sh
+  pip install pillow
+  
 
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/catiaspsilva/README-template.git
-   ```
-2. Setup (and activate) your environment
-  ```sh
-  conda env create -f requirements.yml
-  ```
+   sh
+   git clone [your-repo-link]
+   
+2. Install the required packages
+   sh
+   pip install -r requirements.txt
+   
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. For course projects, include which file to execute and the format of any input variables.
+1. Dataset Preparation:
+   - Place your satellite images in the scenes folder
+   - Ensure images are in RGB format
 
-Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+2. Training the Model:
+   python
+   python train_model.py
+   
+   This will:
+   - Load and preprocess the training data
+   - Train multiple models using different manifold learning techniques
+   - Save the best performing model
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+3. Ship Detection:
+   python
+   python detect_ships.py --scene_path scenes/your_scene.jpg
+   
+   This will:
+   - Load the specified scene
+   - Process it using a sliding window approach
+   - Generate a detection map and visualization
 
-<!-- ROADMAP -->
-## Roadmap
+## Methodology
 
-See the [open issues](https://github.com/catiaspsilva/README-template/issues) for a list of proposed features (and known issues).
+The project implements a multi-stage pipeline:
 
-<!-- CONTRIBUTING -->
-## Contributing
+1. *Preprocessing*:
+   - Image standardization
+   - Sliding window extraction (80x80 pixels)
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+2. *Feature Learning*:
+   - Manifold learning techniques:
+     - t-SNE
+     - Isomap
+     - Local Linear Embedding (LLE)
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+3. *Classification*:
+   - Multiple classifiers evaluated:
+     - Support Vector Machines (SVM)
+     - Random Forest
+     - k-Nearest Neighbors
 
+4. *Detection*:
+   - Sliding window approach
+   - Prediction aggregation
+   - Heat map generation
 
-<!-- LICENSE -->
-## License
+## Results
 
-Distributed under the MIT License. See `LICENSE` for more information.
+The best performing model combination was:
+- Manifold Learning: t-SNE
+- Classifier: SVM
+- Metrics:
+  - Accuracy: [Your accuracy score]
+  - F1-Score: [Your F1 score]
+  - Inference Time: [Your inference time]
 
-
-<!-- Authors -->
-## Authors
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-You can acknowledge any individual, group, institution or service.
-* [Catia Silva](https://faculty.eng.ufl.edu/catia-silva/)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-
-## Thank you
-
-<!-- If this is useful: [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg)](https://www.buymeacoffee.com/catiaspsilva) -->
+The system provides three visualization outputs:
+1. Original scene
+2. Detection heat map
+3. Detection overlay on the original image
