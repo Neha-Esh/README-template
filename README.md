@@ -1,161 +1,123 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/catiaspsilva/README-template">
-    <img src="images/gators.jpg" alt="Logo" width="150" height="150">
-  </a>
-
-  <h3 align="center">README Template</h3>
-
-  <p align="center">
-    A README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/catiaspsilva/README-template/blob/main/images/docs.txt"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="#usage">View Demo</a>
-    ·
-    <a href="https://github.com/catiaspsilva/README-template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/catiaspsilva/README-template/issues">Request Feature</a>
-  </p>
-</p>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#dependencies">Dependencies</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#authors">Authors</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
-
-
+<!-- PROJECT LOGO --> <br /> <p align="center"> <a href="https://github.com/your_username/ship-classification"> <img src="images/ship_logo.png" alt="Logo" width="150" height="150"> </a> <h3 align="center">Ship Image Classification and Analysis</h3> <p align="center"> A pipeline for classifying ship images using traditional machine learning techniques. <br /> <a href="https://github.com/your_username/ship-classification/blob/main/docs/documentation.md"><strong>Explore the docs »</strong></a> <br /> <br /> <a href="#usage">View Demo</a> · <a href="https://github.com/your_username/ship-classification/issues">Report Bug</a> · <a href="https://github.com/your_username/ship-classification/issues">Request Feature</a> </p> </p>
+<!-- TABLE OF CONTENTS --> <details open="open"> <summary>Table of Contents</summary> <ol> <li> <a href="#about-the-project">About The Project</a> <ul> <li><a href="#built-with">Built With</a></li> </ul> </li> <li> <a href="#getting-started">Getting Started</a> <ul> <li><a href="#dependencies">Dependencies</a></li> <li><a href="#installation">Installation</a></li> </ul> </li> <li><a href="#usage">Usage</a></li> <li><a href="#roadmap">Roadmap</a></li> <li><a href="#contributing">Contributing</a></li> <li><a href="#license">License</a></li> <li><a href="#authors">Authors</a></li> <li><a href="#acknowledgements">Acknowledgements</a></li> </ol> </details>
 <!-- ABOUT THE PROJECT -->
-## About The Project
+About The Project
+This project implements a machine learning pipeline to classify ship images as either "Ship" or "No Ship." It includes visualization tools, dimensionality reduction techniques, and supervised learning models for accurate and efficient classification.
 
-In this section you should describe your project, including any datasets you used and appropriate citations. You may refer to your project report or cite your paper for more detailed information.
+Key features of the pipeline:
 
-[Here goes the title with hyperlink](https://github.com/catiaspsilva/README-template)
-
-You can include tables or images to summarize your results when and if appropriate.
+Data Visualization: Display samples of ship and no-ship images for exploratory analysis.
+Dimensionality Reduction: Use Principal Component Analysis (PCA) to optimize computational efficiency and reconstruct images.
+Supervised Learning: Train and evaluate models like Random Forest and SVM.
+Manifold Learning: Apply t-SNE, Isomap, and LLE for advanced visualization and classification.
+Built With
+NumPy
+Matplotlib
+Seaborn
+scikit-learn
+Visit the project repository
 
 <!-- GETTING STARTED -->
-## Getting Started
+Getting Started
+To get a local copy up and running, follow these steps.
 
-In this section you should provide instructions on how to use this repository to recreate your project locally.
+Dependencies
+Ensure the following libraries are installed:
 
-### Dependencies
+NumPy 1.22.3
 
-Here, list all libraries, packages and other dependencies that need to be installed to run your project. Include library versions and how they should be installed if a special requirement is needed.
+pip install numpy
+Matplotlib 3.5.1
 
-For example, this is how you would list them:
-* Transformers 4.8.0
-  ```sh
-  conda install -c conda-forge transformers
-  ```
-* OpenCV 4.5.2
-  ```sh
-  conda install -c conda-forge opencv
-  ```
-### Alternative: Export your Environment
+pip install matplotlib
+Seaborn 0.11.2
 
-Alternatively, you can export your Python working environment, push it to your project's repository and allow users to clone it locally. This way, anyone can install it and they will have all dependencies needed. Here is how you export a copy of your Python environment:
+pip install seaborn
+scikit-learn 1.0.2
 
-  ```sh
-  conda env export > requirements.yml
-  ```
+pip install scikit-learn
+Alternative: Export Your Environment
+To export your Python environment:
 
-The user will be able to recreate it using:
+conda env export > environment.yml
+Users can recreate the environment with:
 
-  ```sh
-  conda env create -f requirements.yml
-  ```
+conda env create -f environment.yml
+Installation
+Clone the repository:
 
-### Installation
+git clone https://github.com/Neha-Esh/ship-classification.git
+Set up the environment:
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/catiaspsilva/README-template.git
-   ```
-2. Setup (and activate) your environment
-  ```sh
-  conda env create -f requirements.yml
-  ```
+conda env create -f environment.yml
+conda activate ship-classification-env
+Add the dataset (ship_data.npy and ship_labels.npy) to the root directory.
+<!-- USAGE -->
+Usage
+This project is modular. You can execute individual scripts for specific tasks.
 
-<!-- USAGE EXAMPLES -->
-## Usage
+Visualize Data
 
-Use this space to show useful examples of how a project can be used. For course projects, include which file to execute and the format of any input variables.
+python visualize_data.py
+This script displays random samples of ship and no-ship images, along with geographic data from specific regions.
 
-Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Train Classifiers
+Random Forest
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+python train_random_forest.py
+This script trains a Random Forest model and evaluates its performance on the test set.
+
+Dimensionality Reduction
+
+python pca_reconstruction.py
+This script reduces dimensionality using PCA and visualizes reconstructed images.
+
+Manifold Learning
+
+python manifold_learning.py
+This script reduces image features to 2D and trains models using t-SNE, Isomap, and LLE.
+
+For more examples, see the documentation
 
 <!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/catiaspsilva/README-template/issues) for a list of proposed features (and known issues).
+Roadmap
+ Integrate CNN-based classification models.
+ Extend to multi-class classification for different ship types.
+ Automate data preprocessing.
+ Include larger datasets with distributed training support.
+See the open issues for a full list of proposed features and known issues.
 
 <!-- CONTRIBUTING -->
-## Contributing
+Contributing
+Contributions are what make the open-source community such an amazing place to learn and create. Any contributions you make are greatly appreciated.
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Fork the project.
+Create your feature branch:
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+git checkout -b feature/AmazingFeature
+Commit your changes:
 
+git commit -m "Add AmazingFeature"
+Push to the branch:
 
+git push origin feature/AmazingFeature
+Open a pull request.
 <!-- LICENSE -->
-## License
+License
+Distributed under the MIT License. See LICENSE for more information.
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-<!-- Authors -->
-## Authors
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
+<!-- AUTHORS -->
+Authors
+Your Name
+GitHub: @Neha-Esh
+Email: neha.eshwaragari@ufl.edu
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+Acknowledgements
+This project uses:
 
-You can acknowledge any individual, group, institution or service.
-* [Catia Silva](https://faculty.eng.ufl.edu/catia-silva/)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-
-## Thank you
-
-<!-- If this is useful: [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg)](https://www.buymeacoffee.com/catiaspsilva) -->
+NumPy for numerical computations.
+Matplotlib and Seaborn for visualization.
+scikit-learn for machine learning algorithms.
+t-SNE for manifold learning.
+Thank you for your support and contributions!
